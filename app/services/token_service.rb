@@ -4,7 +4,7 @@ class TokenService
 	include Singleton
 	
 	def initialize
-		@rsa_private = OpenSSL::PKey::RSA.new File.read('/app/config/jwt.key'), 
+		@rsa_private = OpenSSL::PKey::RSA.new File.read('config/jwt.key'), 
 		Rails.application.credentials.rsa_key
 		@rsa_public = @rsa_private.public_key
 	end
